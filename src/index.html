@@ -4,22 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>My Website</title>
+    <title>Japanese grammar by @ftlsid</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
     <main>
         <h1>Japanese grammar</h1>
-        <p>How fast can you learn Japanese grammar? Let's find out. </p>
-        <p>This is a non-standard tutorial, where I've simplified and combined concepts in order to minimize the amount
-            of information you need to digest.</p>
+        <p>How fast can you learn Japanese grammar? Let's find out.</p>
         <p>You can switch between rōmaji and Japanese script using the toggle below (or by pressing the r and j keys),
             but if you're studying seriously you should definitely learn to read kana. I've provided furigana (kana
-            reading aid) everywherer, so you don't need to know any kanji.</p>
+            reading aid) everywhere, so you don't need to know any kanji.</p>
         <p>If you don't know a word, just paste it into <a href="https://jisho.org" target="_blank">jisho</a>.</p>
         <div>
             <input type="radio" name="script" value="Kanji" id="kanji" onclick="switch_to_jp()" checked>
@@ -29,9 +25,12 @@
             <input type="radio" name="script" value="Romaji" id="romaji" onclick="switch_to_romaji()">
             <label for="romaji">rōmaji</label>
         </div>
-        <h2>Table of contents</h2>
-        <div id="toc"></div>
-        <h2 class="heading">Affirmative and negative statements</h2>
+        <div>
+            <input type="checkbox" name="furigana" id="furigana" onclick="toggle_furigana(event)" checked>
+            <label for="furigana">Show furigana</label>
+        </div>
+        <hr>
+        <h2>Affirmative and negative statements</h2>
         <p>Sentences end in verbs. A verb in its default, present-tense form ends in an<span class="example-rom"> u
             </span><span class="example-jp">う</span>sound. </p>
         <div class="example">
@@ -40,7 +39,7 @@
                 <div class="example-element example-jp">
                     <ruby>私<rt>わたし</rt></ruby>は<ruby>生<rt>い</rt></ruby>きる。
                 </div>
-                <div class="example-element example-rom">watashi wa ikiru.</div>
+                <div class="example-element example-rom">watashi-wa ikiru.</div>
                 <div class="example-element example-en">I live.</div>
             </div>
         </div>
@@ -48,7 +47,7 @@
             which can be attached to the end of another word to mark its grammatical purpose. Although it's written with
             the kana <span class="example-rom">ha</span><span class="example-jp">は</span>, when used as a particle, it's
             pronounced <span class="example-rom">wa</span><span class="example-jp">わ</span>. In this case, <span
-                class="example-rom">watashi wa</span><span class="example-jp"><ruby>私<rt>わたし</rt></ruby>は</span> means
+                class="example-rom">watashi-wa</span><span class="example-jp"><ruby>私<rt>わたし</rt></ruby>は</span> means
             that the sentence is about <span class="example-jp"><ruby>私<rt>わたし</rt></ruby></span><span
                 class="example-rom">watashi</span> (the standard first-person pronoun; I).</p>
         <div class="example">
@@ -56,27 +55,27 @@
             <div class="example-inner">
                 <div class="example-element example-jp"><ruby>今日<rt>きょう</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>だ。
                 </div>
-                <div class="example-element example-rom">kyou wa getsuyoubi da.</div>
+                <div class="example-element example-rom">kyou-wa getsuyoubi da.</div>
                 <div class="example-element example-en">Today is Monday.</div>
             </div>
         </div>
         <p> This sentence ends with the verb <span class="example-jp">だ</span><span class="example-rom">da</span>, which
-            means "is". Incidentally, this is the only present-tense verb that doesn't end in an<span
-                class="example-rom"> u </span><span class="example-jp">う</span>sound.</p>
-        <p>To talk about the past, just conjugate the verb; in this case <span class="example-jp">だ</span><span
-                class="example-rom">da</span> becomes <span class="example-jp">だった</span><span
-                class="example-rom">datta</span>:</p>
+            roughly means "is", or "to be". This is the only present-tense verb that doesn't end in an<span
+                class="example-rom"> u </span><span class="example-jp">う</span>sound, so it conjugates irregularly.
+            Let's quickly memorize those conjugations.</p>
+        <p>When talking about the past, <span class="example-jp">だ</span><span class="example-rom">da</span> becomes
+            <span class="example-jp">だった</span><span class="example-rom">datta</span>:</p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
                 <div class="example-element example-jp"> <ruby>昨日<rt>きのう</rt></ruby>は<ruby>私<rt>わたし</rt>
                     </ruby>の<ruby>誕生日<rt>たんじょうび</rt></ruby>だった。 </div>
-                <div class="example-element example-rom">kinou wa watashi no tanjoubi datta.</div>
+                <div class="example-element example-rom">kinou-wa watashi-no tanjoubi datta.</div>
                 <div class="example-element example-en">Yesterday was my birthday.</div>
             </div>
         </div>
         <p> Oops, another particle. <span class="example-jp">の</span><span class="example-rom">no</span> works exactly
-            like apostrophe-s does in English. X<span class="example-jp">の</span><span class="example-rom"> no </span>Y
+            like apostrophe-s does in English. X<span class="example-jp">の</span><span class="example-rom">-no </span>Y
             means X's Y. </p>
         <p>We also need to be able to negate our statements. Here are the negative forms of <span
                 class="example-jp">だ</span><span class="example-rom">da</span> (is) and <span
@@ -86,20 +85,21 @@
             <div class="example-inner">
                 <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>日本人<rt>にほんじん</rt></ruby>じゃない。
                 </div>
-                <div class="example-element example-rom">watashi wa nihonjin janai.</div>
+                <div class="example-element example-rom">watashi-wa nihonjin janai.</div>
                 <div class="example-element example-en">I am not Japanese.</div>
             </div>
         </div>
         <p>
             <span class="example-jp">だ</span><span class="example-rom">da</span> becomes <span
-                class="example-jp">じゃない</span><span class="example-rom">janai</span> in the negative form. This doesn't
-            follow any regular pattern, so just memorize it.
+                class="example-jp">じゃない</span><span class="example-rom">janai</span> in the negative form. Like I said
+            above, it's irregular.
         </p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp"> 彼女は犯人じゃなかった。 </div>
-                <div class="example-element example-rom">kanojo wa hannin janakatta.</div>
+                <div class="example-element example-jp"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>犯人<rt>はんにん</rt></ruby>じゃなかった。
+                </div>
+                <div class="example-element example-rom">kanojo-wa hannin janakatta.</div>
                 <div class="example-element example-en">She was not the culprit.</div>
             </div>
         </div>
@@ -107,7 +107,8 @@
                 class="example-jp">じゃなかった</span><span class="example-rom">janakatta</span> when negated; or rather, the
             present-tense negative <span class="example-jp">じゃない</span><span class="example-rom">janai</span> becomes
             the past-tense negative <span class="example-jp">じゃなかった</span><span class="example-rom">janakatta</span>. As
-            in English, the negative past is often used when rejecting a hypothesis. To summarize:</p>
+            in English, the negative past is often used when rejecting a hypothesis.</p>
+        <p> To summarize the forms of <span class="example-jp">だ</span><span class="example-rom">da</span>:</p>
         <table>
             <tr>
                 <th></th>
@@ -125,27 +126,14 @@
                 <td><span class="example-jp">じゃなかった</span><span class="example-rom">janakatta</span></td>
             </tr>
         </table>
-        <h2 class="heading">Ichidan verbs</h2>
-        <p>There are two main kinds of verbs: ichidan and godan. Ichidan verbs are simpler, so let's deal with those
-            first.</p>
-        <p>Ichidan verbs always end in <span class="example-rom">ru</span><span class="example-jp">る</span>, but not all
-            verbs that end in <span class="example-rom">ru</span><span class="example-jp">る</span> are ichidan verbs. To
-            conjugate an ichidan verb, you'll replace the final <span class="example-rom">ru</span><span
-                class="example-jp">る</span> with something else. </p>
-        <p> The negative form of an ichidan verb is created by replacing <span class="example-rom">ru</span><span
-                class="example-jp">る</span> with <span class="example-rom">nai</span><span class="example-jp">ない</span>.
-            For example, here's the negative of <span class="example-jp"><ruby>食<rt>た</rt></ruby>べる</span><span
-                class="example-rom">taberu</span>, to eat: </p>
-        <div class="example">
-            <div class="example-number"></div>
-            <div class="example-inner">
-                <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>魚<rt>さかな</rt></ruby>を<ruby>食
-                        <rt>た</rt></ruby>べない。 </div>
-                <div class="example-element example-rom">watashi wa sakana o tabenai.</div>
-                <div class="example-element example-en">I do not eat fish.</div>
-            </div>
-        </div>
-        <p>Aha, a new particle. を marks the object of an action, and is pronounced "o" rather than "wo".</p>
+        <h2>Regular verbs I</h2>
+        <p>Now that we've seen the four basic forms of the irregular verb <span class="example-jp">だ</span><span
+                class="example-rom">da</span>, let's figure out how to conjugate regular verbs. There are two main kinds
+            of verbs: ichidan and godan. Ichidan verbs are simpler, so we can deal with them all at once.</p>
+        <p>Ichidan verbs always end in <span class="example-rom">ru</span><span class="example-jp">る</span> in the
+            present tense, but not all verbs that end in <span class="example-rom">ru</span><span
+                class="example-jp">る</span> are ichidan verbs. To conjugate an ichidan verb, you'll replace the final
+            <span class="example-rom">ru</span><span class="example-jp">る</span> with something else. </p>
         <p>Let's form the past tense of an ichidan verb. Replace <span class="example-rom">ru</span><span
                 class="example-jp">る</span> with <span class="example-rom">ta</span><span class="example-jp">た</span>;
             in this case, using the verb <span class="example-rom">miru</span><span class="example-jp"><ruby>見<rt>み</rt>
@@ -156,26 +144,47 @@
                 <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>昨日<rt>きのう</rt></ruby>の<ruby>番組
                         <rt>ばんぐみ</rt>
                     </ruby>を<ruby>見<rt>み</rt></ruby>た。 </div>
-                <div class="example-element example-rom">watashi wa kinou no bangumi o mita.</div>
+                <div class="example-element example-rom">watashi-wa kinou-no bangumi-o mita.</div>
                 <div class="example-element example-en">I saw yesterday's TV show.</div>
             </div>
         </div>
-        <p>Remember how <span class="example-jp">じゃない</span><span class="example-rom">janai</span> (negative) became
-            <span class="example-jp">じゃなかった</span><span class="example-rom">janakatta</span> (past negative)? Turns out
-            that's a regular pattern. If something ends in <span class="example-rom">nai</span><span
-                class="example-jp">ない</span> in the negative form, the negative past is formed by replacing <span
-                class="example-rom">nai</span><span class="example-jp">ない</span> with <span
-                class="example-rom">nakatta</span><span class="example-jp">なかった</span>. In the following example we use
-            the verb wasureru -> wasurenai -> wasurenakatta:</p>
+        <p>Aha, a new particle. <span class="example-rom">o</span><span class="example-jp">を</span> marks the object of
+            an action. Although it's written with the kana <span class="example-rom">wo</span><span
+                class="example-jp">を</span>, it's pronounced <span class="example-rom">o</span><span
+                class="example-jp">お</span>.</p>
+        <p> The negative form of an ichidan verb is created by replacing <span class="example-rom">ru</span><span
+                class="example-jp">る</span> with <span class="example-rom">nai</span><span class="example-jp">ない</span>.
+            For example, here's the negative of <span class="example-jp"><ruby>食<rt>た</rt></ruby>べる</span><span
+                class="example-rom">taberu</span>, to eat: </p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>はあの約束を忘れなかった。</div>
-                <div class="example-element example-rom">watashi wa ano yakusoku o wasurenakatta.</div>
+                <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>は<ruby>魚<rt>さかな</rt></ruby>を<ruby>食
+                        <rt>た</rt></ruby>べない。 </div>
+                <div class="example-element example-rom">watashi-wa sakana-o tabenai.</div>
+                <div class="example-element example-en">I do not eat fish.</div>
+            </div>
+        </div>
+        <p>Remember how <span class="example-jp">じゃない</span><span class="example-rom">janai</span> (is not) became <span
+                class="example-jp">じゃなかった</span><span class="example-rom">janakatta</span> (was not)? Turns out that's a
+            regular pattern. If something ends in <span class="example-rom">nai</span><span class="example-jp">ない</span>
+            in the negative form, the negative past is formed by replacing <span class="example-rom">nai</span><span
+                class="example-jp">ない</span> with <span class="example-rom">nakatta</span><span
+                class="example-jp">なかった</span>. In the following example we use the verb <span
+                class="example-rom">wasureru</span><span class="example-jp">忘れる</span> → <span
+                class="example-rom">wasurenai</span><span class="example-jp">忘れない</span> → <span
+                class="example-rom">wasurenakatta</span><span class="example-jp">忘れなかった</span>:</p>
+        <div class="example">
+            <div class="example-number"></div>
+            <div class="example-inner">
+                <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>はあの<ruby>約束<rt>やくそく</rt>
+                    </ruby>を<ruby>忘<rt>わす</rt></ruby>れなかった。</div>
+                <div class="example-element example-rom">watashi-wa ano yakusoku-o wasurenakatta.</div>
                 <div class="example-element example-en">I did not forget that promise.</div>
             </div>
         </div>
-        <p>あの is an adjective that means "that" and can be placed before nouns just like in English.</p>
+        <p><span class="example-jp">あの</span><span class="example-rom">ano</span> (that) is an adjective that can be
+            placed before nouns just like in English.</p>
         <p>Here's the summary of the conjugations we just learned, again using <span class="example-jp"><ruby>食<rt>た
                     </rt></ruby>べる</span><span class="example-rom">taberu</span> (to eat) as an example:</p>
         <table>
@@ -199,54 +208,77 @@
                         class="example-rom">tabenakatta</span></td>
             </tr>
         </table>
-        <p>You'll see this pattern of four basic forms repeatedly across different situations and parts of speech. </p>
-        <h2>Adjectives</h2>
-        <p>There are two main kinds of adjectives. In this section we'll cover い-adjectives, which end in い. These can
-            be placed directly before a noun, just like in English:</p>
+        <h2>Adjectives I</h2>
+        <p>What if we want to describe things? The first class of adjectives, called <span
+                class="example-jp">い</span><span class="example-rom">i</span>-adjectives, end in い and can be placed
+            directly before a noun:</p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp">すごい<ruby>物<rt>もの</rt></ruby>を見た。</div>
-                <div class="example-element example-rom">sugoi mono o mita.</div>
+                <div class="example-element example-jp">すごい<ruby>物<rt>もの</rt></ruby>を<ruby>見<rt>み</ruby></rt>た。</div>
+                <div class="example-element example-rom">sugoi mono-o mita.</div>
                 <div class="example-element example-en">I saw something incredible.</div>
             </div>
         </div>
-        <p>Here すごい (incredible, amazing) describes 物 (thing). By the way, Japanese allows you to leave out the topic
-            (in this case, 私は) if it's implied by context, as it is above. In fact, this way of speaking is the most
-            common, so I'm going to use it frequently from now on.</p>
-        <p>It's also possible to use i-adjectives with は, as follows:</p>
+        <p>Here <span class="example-jp">すごい</span><span class="example-rom">sugoi</span> (incredible, amazing)
+            describes <span class="example-jp"><ruby>物<rt>もの</rt></ruby></span><span class="example-rom">mono</span>
+            (thing). By the way, Japanese allows you to leave out the topic (in this case, <span
+                class="example-jp"><ruby>私<rt>わたし</rt>
+                </ruby></span><span class="example-rom">watashi</span>) if it's implied by context, as it is above. In
+            fact, this way of speaking is the most common, so I'm going to use it frequently from now on.</p>
+        <p>It's also possible to use <span class="example-jp">い</span><span class="example-rom">i</span>-adjectives with
+            <span class="example-rom">wa</span><span class="example-jp">は</span>, in the pattern X<span
+                class="example-rom">-wa </span><span class="example-jp">は</span>Y:</p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp">私の彼女はとても可愛い。</div>
-                <div class="example-element example-rom">watashi no kanojo wa totemo kawaii.</div>
+                <div class="example-element example-jp"><ruby>私<rt>わたし</rt>
+                    </ruby>の<ruby>彼女<rt>かのじょ</rt></ruby>はとてもかわいい。</div>
+                <div class="example-element example-rom">watashi-no kanojo-wa totemo kawaii.</div>
                 <div class="example-element example-en">My girlfriend is very cute.</div>
             </div>
         </div>
-        <p>とても means "very", and you can stick it before adjectives without thinking too hard. The important thing to
-            note here is that we didn't add だ (is) to the end of the sentence. You cannot use だ with い-adjectives; in
-            some sense the "is" is implied.</p>
-        <p>i-adjectives can also be conjugated:</p>
+        <p><span class="example-jp">とても</span><span class="example-rom">totemo</span> means "very", and you can usually
+            stick it before adjectives. The important thing to note here is that we didn't add <span
+                class="example-jp">だ</span><span class="example-rom">da</span> (is) to the end of the sentence. You
+            cannot use <span class="example-jp">だ</span><span class="example-rom">da</span> with <span
+                class="example-jp">い</span><span class="example-rom">i</span>-adjectives; in some sense the "is" is
+            implied.</p>
+        <p><span class="example-jp">い</span><span class="example-rom">i</span>-adjectives can also be conjugated. In the
+            past tense, the final <span class="example-jp">い</span><span class="example-rom">i</span> becomes <span
+                class="example-jp">かった</span><span class="example-rom">katta</span>; in the next example, <span
+                class="example-rom">samui</span><span class="example-jp"><ruby>寒<rt>さむ</rt>
+                </ruby>い</span> (cold) becomes <span class="example-rom">samukatta</span><span
+                class="example-jp"><ruby>寒<rt>さむ</rt>
+                </ruby>かった</span> (was cold):</p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp">風呂は温かくない。</div>
-                <div class="example-element example-rom">furo wa atatakakunai.</div>
-                <div class="example-element example-en">The bath is not warm.</div>
-            </div>
-        </div>
-        <p>The adjective 温かい means pleasantly warm. We swap out the last い for くない to get the negative 温かくない (bit of a
-            mouthful). There's also a past tense:</p>
-        <div class="example">
-            <div class="example-number"></div>
-            <div class="example-inner">
-                <div class="example-element example-jp">昨日の天気はとても寒かった。</div>
-                <div class="example-element example-rom">kinou no tenki wa totemo samukatta.</div>
+                <div class="example-element example-jp"><ruby>昨日<rt>きのう</rt></ruby>の<ruby>天気<rt>てんき</rt>
+                    </ruby>はとても<ruby>寒<rt>さむ</rt></ruby>かった。</div>
+                <div class="example-element example-rom">kinou-no tenki-wa totemo samukatta.</div>
                 <div class="example-element example-en">Yesterday's weather was very cold.</div>
             </div>
         </div>
-        <p>In the past tense, い becomes かった. The past negative follows the usual rule for things ending in ない, so I'll
-            skip the example and just give you the conjugation table for 可愛い (cute): </p>
+        <p>Next, the negative form:</p>
+        <div class="example">
+            <div class="example-number"></div>
+            <div class="example-inner">
+                <div class="example-element example-jp"><ruby>風呂<rt>ふろ</rt></ruby>は<ruby>温<rt>あたた</rt>
+                    </ruby>かくない。</div>
+                <div class="example-element example-rom">furo-wa atatakakunai.</div>
+                <div class="example-element example-en">The bath is not warm.</div>
+            </div>
+        </div>
+        <p>The adjective <span class="example-jp"><ruby>温<rt>あたた</rt>
+                </ruby>かい</span><span class="example-rom">atatakai</span> means pleasantly warm. Swap out the last <span
+                class="example-jp">い</span><span class="example-rom">i</span> for <span
+                class="example-jp">くない</span><span class="example-rom">kunai</span> to get the negative <span
+                class="example-jp"><ruby>温<rt>あたた</rt>
+                </ruby>かくない</span><span class="example-rom">atatakakunai</span> (bit of a mouthful).</p>
+        <p>The past negative follows the usual rule for things ending in <span class="example-jp">ない</span><span
+                class="example-rom">nai</span>, so I'll skip the example and just give you the conjugation table for
+            <span class="example-jp">かわいい</span><span class="example-rom">kawaii</span> (cute): </p>
         <table>
             <tr>
                 <th></th>
@@ -264,55 +296,18 @@
                 <td><span class="example-jp">かわいくなかった</span><span class="example-rom">kawaikunakatta</span></td>
             </tr>
         </table>
-        <p>And of course these conjugated forms can be placed before nouns just like the base form:</p>
+        <p>And of course these conjugated forms can be placed before nouns just like the base form. Using the negative
+            of <span class="example-jp"><ruby>面白<rt>おもしろ</rt></ruby>い</span><span class="example-rom">omoshiroi</span>
+            (interesting): </p>
         <div class="example">
             <div class="example-number"></div>
             <div class="example-inner">
-                <div class="example-element example-jp">。</div>
-                <div class="example-element example-rom">kinou no tenki wa totemo samukatta.</div>
-                <div class="example-element example-en">Yesterday's weather was very cold.</div>
+                <div class="example-element example-jp"><ruby>面白<rt>おもしろ</rt></ruby>くない<ruby>映画<rt>えいが</rt>
+                    </ruby>を<ruby>見<rt>み</rt></ruby>ない。</div>
+                <div class="example-element example-rom">omoshirokunai eiga-o minai.</div>
+                <div class="example-element example-en">I do not watch uninteresting movies.</div>
             </div>
         </div>
-        <h2>The subject particle</h2>
-        <h2>Verbs II: Godan</h2>
-        <h2>Directionality and time</h2>
-        <div class="example">
-            <div class="example-number"></div>
-            <div class="example-inner">
-                <div class="example-element example-jp"><ruby>私<rt>わたし</rt></ruby>の<ruby>母<rt>はは</rt>
-                    </ruby>は<ruby>東京 <rt>とうきょう</rt></ruby>に<ruby>行<rt>い</rt></ruby>く。 </div>
-                <div class="example-element example-rom">watashi no haha wa toukyou ni iku.</div>
-                <div class="example-element example-en">My mother goes to Tokyo.</div>
-            </div>
-        </div>
-        <p> Another new particle. In this case <span class="example-jp">に</span><span class="example-rom">ni</span>
-            marks the destination of a verb. It can also do many other things, as we'll see later. By the way, we can
-            also interpret (3) as "my mother will go to Tokyo." Japanese lacks a real future tense, so context is used
-            to tell the difference, as in the following sentence: </p>
-        <div class="example">
-            <div class="example-number"></div>
-            <div class="example-inner">
-                <div class="example-element example-jp"><ruby>俺<rt>おれ</rt></ruby>は<ruby>海賊王<rt>かいぞくおう</rt>
-                    </ruby>になる！ </div>
-                <div class="example-element example-rom">ore wa kaizokuou ni naru!</div>
-                <div class="example-element example-en">I will become the pirate king!</div>
-            </div>
-        </div>
-        <p> Here に marks the destination of なる (to become), even though it's not a physical place. Also note that we've
-            switched pronouns from 私 (polite, sometimes feminine) to 俺 (casual, masculine). Incidentally, Luffy from One
-            Piece usually phrases his ambitions a bit differently: </p>
-        <div class="example">
-            <div class="example-number"></div>
-            <div class="example-inner">
-                <div class="example-element example-jp"><ruby>海賊王<rt>かいぞくおう</rt></ruby>に<ruby>俺<rt>おれ</rt>
-                    </ruby>はなる！ </div>
-                <div class="example-element example-rom">kaizokuou ni ore wa naru</div>
-                <div class="example-element example-en">I will become the pirate king!</div>
-            </div>
-        </div>
-        <p> We've flipped the order of the first two terms, which is legal in Japanese. You can put words marked by
-            particles pretty much anywhere as long as the verb remains at the end. Word function is determined by the
-            associated particle(s) and not by position in the sentence. </p>
     </main>
     <script>
         function switch_to_romaji() {
@@ -343,14 +338,15 @@
             }
         }
 
-        function generate_toc() {
-            const headers = document.getElementsByClassName("heading");
-            const tocDiv = document.getElementById("toc");
-            for (h of headers) {
-                const newDiv = document.createElement("a");
-                newDiv.classList.add("toc-item");
-                newDiv.innerText = h.innerText;
-                tocDiv.appendChild(newDiv);
+        function toggle_furigana(event) {
+            for (e of document.getElementsByTagName("rt")) {
+                if (event.target.checked) {
+                    e.classList.remove("hidden");
+
+                } else {
+                    e.classList.add("hidden");
+
+                }
             }
         }
 
@@ -365,7 +361,6 @@
 
         switch_to_jp();
         add_example_numbers();
-        generate_toc();
     </script>
 </body>
 
