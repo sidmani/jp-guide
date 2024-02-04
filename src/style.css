@@ -13,7 +13,7 @@ h1, h2, h3 {
 .example {
     display: flex;
     align-items: center;
-    border: 1px solid;
+    border: 1px solid #ccc;
     padding: 0.5em;
 }
 
@@ -47,13 +47,13 @@ table {
 
 th {
     font-weight: 300;
-    border: 1px solid;
+    border: 1px solid #ccc;
     padding: 0.5em;
     text-align: center;
 }
 
 td {
-    border: 1px solid;
+    border: 1px solid #ccc;
     text-align: center;
     padding: 0.5em;
 }
