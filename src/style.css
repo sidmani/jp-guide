@@ -1,9 +1,10 @@
 body {
-    margin: 4em auto;
+    margin: 2em auto;
     line-height: 1.5em;
     max-width: 36em;
     font-size: 20px;
     color: #222;
+    padding: 0 1em;
 }
 
 h1, h2, h3 {

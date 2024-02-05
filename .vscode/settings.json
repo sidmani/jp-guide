@@ -1,4 +1,5 @@
 {
   "html.format.preserveNewLines": false,
-  "html.autoClosingTags": false
+  "html.autoClosingTags": false,
+  "editor.wordWrap": "on"
 }
