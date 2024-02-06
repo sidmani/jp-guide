@@ -1,5 +1,6 @@
 {
   "html.format.preserveNewLines": false,
   "html.autoClosingTags": false,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "vim.disableExtension": true
 }
