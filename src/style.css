@@ -16,6 +16,7 @@ h1, h2, h3 {
     align-items: center;
     border: 1px solid #ccc;
     padding: 0.5em;
+    margin-bottom: 1em;
 }
 
 .example-inner {

@@ -12,10 +12,10 @@
 <body>
     <main>
         <h1>Japanese grammar</h1>
-        <p>How fast can you learn Japanese grammar? Let's find out.</p>
+        <p>How fast can you learn to understand Japanese? Let's find out.</p>
         <p>You can switch between rōmaji and Japanese script using the toggle below (or by pressing the r and j keys),
-            but if you're studying seriously you should definitely learn to read kana. I've provided furigana (kana
-            reading aid) everywhere, so you don't need to know any kanji.</p>
+            but if you're serious you should learn to read kana. I've provided furigana (kana reading aid) everywhere,
+            so you don't need to know any kanji, but if you're serious you should learn those too.</p>
         <p>If you don't know a word, just paste it into <a href="https://jisho.org" target="_blank">jisho</a>.</p>
         <div>
             <input type="radio" name="script" value="Kanji" id="kanji" onclick="switch_to_jp()" checked>
@@ -414,16 +414,60 @@
                 </td>
             </tr>
         </table>
+        <h2>The subject particle</h2>
+        <p>From here on out I'm going to assume you're studying seriously and drop the romaji. This will save a lot of
+            my time, and in any case it's easy to memorize kana. I recommend using <a href="https://www.realkana.com/"
+                target="_blank">realkana</a>.</p>
+        <p>The particle が marks the grammatical subject: the thing that is doing the verb. Until now, we've used は to
+            mark the subject, but は and が serve slightly different roles and are not always interchangeable&mdash;the
+            correct term for the word marked by は is the topic. </p>
+        <div class="example">
+            <div class="example-number"></div>
+            <div class="example-inner">
+                <div class="example-element example-jp example-nohide"><ruby>私<rt>わたし</rt></ruby>が<ruby>強<rt>つよ</rt>
+                    </ruby>い。</div>
+                <div class="example-element example-en">I am (the one who is) strong.</div>
+            </div>
+        </div>
+        <p>Statements can be viewed as answers to particular questions, and this is a straightforward way of
+            understanding the difference between は and が. The above sentence reads as the answer to "who is strong?"</p>
+        <div class="example">
+            <div class="example-number"></div>
+            <div class="example-inner">
+                <div class="example-element example-jp example-nohide"><ruby>私<rt>わたし</rt></ruby>は<ruby>強<rt>つよ</rt>
+                    </ruby>い。</div>
+                <div class="example-element example-en">I am strong.</div>
+            </div>
+        </div>
+        <p>In contrast, the above sentence reads as the answer to "what stands out about you?" or "are you weak or
+            strong?"</p>
+        <div class="example">
+            <div class="example-number"></div>
+            <div class="example-inner">
+                <div class="example-element example-jp example-nohide"><ruby>彼<rt>かれ</rt></ruby>は<ruby>目<rt>め</rt>
+                    </ruby>が<ruby>赤<rt>あか</rt></ruby>い。</div>
+                <div class="example-element example-en">His eyes are red.</div>
+            </div>
+        </div>
+        <p>This pattern of using は and が together is very common: は sets the topic for the sentence, and が marks the
+            subject in a clause that elaborates on the topic. The literal translation "as for him, eyes are red" sounds
+            awkward in English, so we use a possessive (his eyes) instead.</p>
+        <p>Don't worry too much if you don't understand the difference between は and が yet. The philosophy of this guide
+            is that you learn Japanese by reading Japanese, not by reading English. Let's push on. </p>
     </main>
     <script>
         function switch_to_romaji() {
             for (e of document.getElementsByClassName("example-jp")) {
+                if (!e.classList.contains("example-nohide")) {
                 e.classList.add("hidden");
+                }
             }
 
             for (e of document.getElementsByClassName("example-rom")) {
                 e.classList.remove("hidden");
             }
+
+            document.getElementById("romaji").checked = true;
         }
 
         function switch_to_jp() {
@@ -434,6 +478,8 @@
             for (e of document.getElementsByClassName("example-rom")) {
                 e.classList.add("hidden");
             }
+
+            document.getElementById("kanji").checked = true;
         }
 
         function add_example_numbers() {
