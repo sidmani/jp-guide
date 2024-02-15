@@ -11,6 +11,11 @@ h1, h2, h3 {
     font-family: sans-serif;
 }
 
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
 .example {
     display: flex;
     align-items: center;
@@ -38,8 +43,7 @@ h1, h2, h3 {
     color: #689d6a;
 }
 
-.toc-item {
-    display: block;
+.toc-link {
 }
 
 table {
